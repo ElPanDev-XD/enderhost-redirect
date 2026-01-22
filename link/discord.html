@@ -1,37 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="2;url=https://discord.gg/TU_INVITACION_AQUI">
-    <title>Redirigiendo a EnderHost Discord...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3;url=https://discord.gg/ZyBVZNpSyH">
+    <title>EnderHost | Redirecting...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f0f0f0; /* Fondo gris conforme a tus preferencias */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
         }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Animación del círculo de carga */
         .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #2c3e50;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #6366f1;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        p { color: #555; margin-top: 20px; }
+        
+        /* Ocultar botón inicialmente */
+        #fallback-button { opacity: 0; transition: opacity 0.5s ease-in; }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen overflow-hidden">
 
-    <div class="loader"></div>
-    <p>Redirigiéndote al Discord oficial de <strong>EnderHost</strong>...</p>
-    <p><small>Si no eres redirigido en 3 segundos, <a href="https://discord.gg/ZyBVZNpSyH">haz clic aquí</a>.</small></p>
+    <div class="absolute top-0 left-0 w-full h-full -z-10">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-900/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-900/20 rounded-full blur-[120px]"></div>
+    </div>
+
+    <main class="text-center px-6">
+        <div class="flex justify-center mb-8">
+            <div class="loader"></div>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-semibold mb-2">
+            Redirecting to <span class="gradient-text">Discord</span>
+        </h2>
+        <p class="text-gray-400 font-light mb-8">Please wait a moment while we connect you...</p>
+
+        <div id="fallback-button">
+            <a href="https://discord.gg/ZyBVZNpSyH" class="inline-flex items-center gap-3 px-8 py-3 rounded-full font-semibold glass-card hover:bg-white/10 transition-all">
+                Click here if you are not redirected
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Mostrar el botón de seguridad después de 3 segundos
+        setTimeout(() => {
+            document.getElementById('fallback-button').style.opacity = '1';
+        }, 3000);
+    </script>
 
 </body>
 </html>
